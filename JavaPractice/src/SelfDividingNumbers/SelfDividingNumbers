@@ -1,0 +1,56 @@
+import java.util.List;
+import java.util.ArrayList;
+
+class Solution {
+    public List<Integer> selfDividingNumbers(int left, int right) {
+		int temp = 0;
+		
+		int constant = 0;
+        //String constant = null;
+		
+		List<Integer> list = new ArrayList<Integer>();
+		for(int i=left; i<=right; i++) {
+			List aaa = new ArrayList();	
+		temp = i;
+		//System.out.println("temp" + temp);
+		constant = i;
+		//System.out.println("constant"+ constant);
+		
+		while(temp != 0) {
+			aaa.add(temp%10);
+			
+			temp = temp/10;
+		    }
+	//}
+		
+		for(int j=0;j<aaa.size();j++) {
+	
+			int acount =  (int) aaa.get(j);
+			
+			if(acount == 0) {
+				constant = 0;
+				break;
+			}
+			else if((constant%acount )!=0) {
+
+				constant = 0;
+				break;
+			}
+		
+		
+		}
+        if(constant != 0){
+            list.add(constant);    
+        }
+		//System.out.println(constant);
+		//System.out.println(list);
+		
+		}
+		
+		return list;
+		
+		
+		//for(int a: list)
+		//	System.out.println(a);
+    }
+}
